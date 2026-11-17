@@ -1,0 +1,180 @@
+/* ===== المتغيرات ===== */
+:root {
+  --ink: #85072d;        /* وردي داكن (عنابي) للعناوين والأزرار */
+  --ink-soft:#85072d ;   /* وردي متوسط للتفاعلات */
+  --paper: #fdf2f8;      /* خلفية الصفحة بلون بينك فاتح جداً وناعم */
+  --card: #ffffff;       /* خلفية البطاقات */
+  --line: #fbcfe8;       /* لون الحدود والخطوط الفاصلة */
+  --muted: #85072d;      /* للنصوص الفرعية بتباين هادئ */
+  --mercy: #410413;      /* لون لجنة الرأفة */
+  --mercy-dark: #85072d;
+  --danger: #d13b30;
+  --danger-bg: #fdecea;
+  --ok-bg: #eef5ee;
+  --ok: #af1e4a;
+}
+body {
+  font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* ===== الترويسة ===== */
+.app-header {
+  background: var(--ink);
+  color: #fff;
+  padding: 2rem 0 1.75rem;
+  border-bottom: 4px solid var(--mercy);
+}
+.app-title {
+  font-size: clamp(1.6rem, 4vw, 2.25rem);
+  font-weight: 700;
+  margin: 0;
+}
+.app-subtitle {
+  margin: .25rem 0 0;
+  color: #c9d3e2;
+}
+
+/* ===== اللوحات ===== */
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+.panel-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.1rem;
+}
+
+/* ===== الحقول ===== */
+.form-label {
+  font-weight: 500;
+  font-size: .92rem;
+  margin-bottom: .3rem;
+}
+.form-control {
+  border-color: var(--line);
+  padding: .55rem .75rem;
+}
+.form-control:focus {
+  border-color: var(--ink-soft);
+  box-shadow: 0 0 0 .2rem rgba(50, 74, 109, .2);
+}
+
+/* ===== الأزرار ===== */
+.btn-primary {
+  --bs-btn-bg: var(--ink);
+  --bs-btn-border-color: var(--ink);
+  --bs-btn-hover-bg: var(--ink-soft);
+  --bs-btn-hover-border-color: var(--ink-soft);
+  --bs-btn-active-bg: var(--ink-soft);
+  --bs-btn-active-border-color: var(--ink-soft);
+  font-weight: 600;
+  padding: .6rem 1rem;
+}
+.btn-mercy {
+  background: var(--mercy);
+  border: 1px solid var(--mercy);
+  color: #fff;
+  font-weight: 600;
+  padding: .6rem 1rem;
+}
+.btn-mercy:hover,
+.btn-mercy:focus-visible {
+  background: var(--mercy-dark);
+  border-color: var(--mercy-dark);
+  color: #fff;
+}
+
+/* ===== صندوق الأخطاء ===== */
+.error-box {
+  color: var(--danger);
+  background: var(--danger-bg);
+  border: 1px solid #f3b9b3;
+  border-radius: 8px;
+  padding: .7rem 1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.error-box:empty {
+  display: none; /* يختفي وهو فارغ */
+}
+
+/* ===== قائمة الطلاب ===== */
+.count-badge {
+  background: var(--ink);
+  color: #fff;
+  border-radius: 999px;
+  min-width: 2rem;
+  text-align: center;
+  padding: .1rem .7rem;
+  font-weight: 600;
+}
+.students-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 320px;
+  overflow-y: auto;
+}
+.students-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: .6rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.students-list li:last-child {
+  border-bottom: 0;
+}
+.student-name {
+  font-weight: 600;
+}
+.student-meta {
+  color: var(--muted);
+  font-size: .88rem;
+  white-space: nowrap;
+}
+.empty-note {
+  color: var(--muted);
+  border-bottom: 0 !important;
+}
+
+/* ===== التقرير ===== */
+.report-area {
+  background: #faf6ee;
+  border: 1px solid #ead9b6;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+}
+.report-area.is-clear {
+  background: var(--ok-bg);
+  border-color: #c4dcc7;
+  color: var(--ok);
+}
+.report-area h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: .75rem;
+}
+.report-area ul {
+  padding-inline-start: 1.2rem;
+  margin-bottom: .75rem;
+}
+.report-total {
+  font-weight: 700;
+  border-top: 1px dashed #d4bd8c;
+  padding-top: .6rem;
+  margin: 0;
+}
+
+/* ===== شاشات صغيرة ===== */
+@media (max-width: 575.98px) {
+  .panel { padding: 1.1rem; }
+  .student-meta { white-space: normal; }
+}
